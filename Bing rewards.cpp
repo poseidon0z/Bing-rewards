@@ -1,7 +1,5 @@
 // Bing rewards.cpp
 // Automates opening all searches for getting microsoft rewards
-
-
 #include <iostream>
 #include <windows.h>
 #include <string>
@@ -31,11 +29,11 @@ int main() {
         mbstowcs_s(&converted, wtext, url.length() + 1, url.c_str(), _TRUNCATE);
         LPWSTR url2 = wtext;
 
-        ShellExecute(0, 0, url2, 0, 0, SW_SHOW);
-        std::cout << "searched for: " << words[random_number] << std::endl;
+        ShellExecute(0, 0, url2, 0, 0, SW_SHOWNORMAL);
+        std::cout << "searched for: " << words[random_number] << "\t\t" << (i + 1) * 100 / 30 << "% completed!" << std::endl;
 
         // Random amount of delay so the searches seem more 'natural'
-        std::this_thread::sleep_for(std::chrono::milliseconds(random_number+200));
+        std::this_thread::sleep_for(std::chrono::milliseconds(random_number + 200));
     }
     return 0;
 }
